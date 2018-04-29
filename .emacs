@@ -50,5 +50,6 @@
 (global-set-key (kbd "<browser-forward>") 'next-buffer)
 (global-set-key (kbd "<browser-back>") 'previous-buffer)
 
+;; Neotree C-c C-c will display current directory as root in tree
 (require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
