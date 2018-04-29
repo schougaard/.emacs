@@ -13,6 +13,7 @@
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["black" "#d55e00" "#009e73" "#f8ec59" "#0072b2" "#cc79a7" "#56b4e9" "white"])
+ '(blink-cursor-mode nil)
  '(cua-mode t nil (cua-base))
  '(custom-enabled-themes (quote (wheatgrass)))
  '(package-selected-packages (quote (markdown-mode yaml-mode neotree super-save))))
