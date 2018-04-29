@@ -15,7 +15,7 @@
    ["black" "#d55e00" "#009e73" "#f8ec59" "#0072b2" "#cc79a7" "#56b4e9" "white"])
  '(cua-mode t nil (cua-base))
  '(custom-enabled-themes (quote (wheatgrass)))
- '(package-selected-packages (quote (super-save))))
+ '(package-selected-packages (quote (markdown-mode yaml-mode neotree super-save))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -44,4 +44,10 @@
 ;; backup in one place. flat, no tree structure
 (setq backup-directory-alist '(("" . "~/.emacs.d/emacs-backup")))
 
+;; https://superuser.com/questions/610776/remapping-emacs-keys-using-scancodes
+(setq w32-pass-multimedia-buttons-to-system nil)
+(global-set-key (kbd "<browser-forward>") 'next-buffer)
+(global-set-key (kbd "<browser-back>") 'previous-buffer)
 
+(require 'neotree)
+(global-set-key [f8] 'neotree-toggle)
