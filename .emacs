@@ -16,7 +16,8 @@
  '(blink-cursor-mode nil)
  '(cua-mode t nil (cua-base))
  '(custom-enabled-themes (quote (wheatgrass)))
- '(package-selected-packages (quote (markdown-mode yaml-mode neotree super-save))))
+ '(package-selected-packages (quote (markdown-mode yaml-mode neotree super-save)))
+ '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -26,8 +27,12 @@
 
 ;; ------------------------------------
 ;; Useful configuation commands:
-; list-packages
 ; menu-set-font
+; list-packages
+; package-list-packages
+; package-install:
+; markdown-mode yaml-mode neotree super-save
+;;C-x C-e in any buffer evaluates the Lisp form immediately before point
 
 ;; Place this file in C:\Users\Username\AppData\Roaming and point to the appropriate files
 ;;https://emacs.stackexchange.com/questions/12881/how-do-i-set-a-different-location-for-the-dot-emacs-emacs-file-on-windows-7
@@ -36,6 +41,10 @@
 ;(setq default-directory "C:/whatever/you/want/to/start/in")
 ;(setenv "HOME" "D:/my/home/directory")
 ;(load user-init-file)
+
+(setq initial-scratch-message nil)
+(setq inhibit-splash-screen t)
+;(switch-to-buffer "**")
 
 (super-save-mode +1)
 (setq super-save-auto-save-when-idle t)
@@ -53,3 +62,12 @@
 ;; Neotree C-c C-c will display current directory as root in tree
 (require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
+
+;; IDO
+;; https://www.masteringemacs.org/article/introduction-to-ido-mode
+(require 'ido)
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(setq ido-use-filename-at-point 'guess)
+(setq ido-create-new-buffer 'always)
+(ido-mode 1)
