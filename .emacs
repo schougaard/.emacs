@@ -16,7 +16,10 @@
  '(blink-cursor-mode nil)
  '(cua-mode t nil (cua-base))
  '(custom-enabled-themes (quote (wheatgrass)))
- '(package-selected-packages (quote (markdown-mode yaml-mode neotree super-save)))
+ '(ido-vertical-mode t)
+ '(package-selected-packages
+   (quote
+    (dashboard ido-grid-mode smex ido-vertical-mode ac-html markdown-mode yaml-mode neotree super-save)))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -26,6 +29,9 @@
  '(default ((t (:family "Consolas" :foundry "outline" :slant normal :weight normal :height 98 :width normal)))))
 
 ;; ------------------------------------
+
+;; See: https://github.com/emacs-tw/awesome-emacs
+
 ;; Useful configuation commands:
 ; menu-set-font
 ; list-packages
@@ -46,6 +52,18 @@
 (setq inhibit-splash-screen t)
 ;(switch-to-buffer "**")
 
+;; Dashboard
+;;(require 'dashboard)
+(setq dashboard-banner-logo-title "Emacs Ready!")
+(setq dashboard-startup-banner 'logo)
+(setq dashboard-items '((recents  . 10)
+                        (bookmarks . 5)
+                        ;(projects . 5)
+                        ;(agenda . 5)
+                        ;(registers . 5)
+			))
+(dashboard-setup-startup-hook)
+
 (super-save-mode +1)
 (setq super-save-auto-save-when-idle t)
 
@@ -60,14 +78,39 @@
 (global-set-key (kbd "<browser-back>") 'previous-buffer)
 
 ;; Neotree C-c C-c will display current directory as root in tree
-(require 'neotree)
+;;(require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
+;(global-set-key (kbd "C-m") 'neotree-toggle)
 
 ;; IDO
 ;; https://www.masteringemacs.org/article/introduction-to-ido-mode
-(require 'ido)
+;;(require 'ido)
 (setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
 (setq ido-use-filename-at-point 'guess)
 (setq ido-create-new-buffer 'always)
+(ido-everywhere 1)
 (ido-mode 1)
+
+;(require 'ido-vertical-mode)
+;(ido-vertical-mode 1)
+
+;;(require 'ido-grid-mode)
+(ido-grid-mode 1)
+
+
+;;(require 'smex) ; Not needed if you use package.el
+(smex-initialize) ; Can be omitted. This might cause a (minimal) delay
+		  ; when Smex is auto-initialized on its first run.
+
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+
+;; Message in minibuffer
+(message "Emacs ready!")
+
+
+;; TODO:
+;; https://github.com/chrisdone/god-mode
+;; http://ergoemacs.github.io/
+;; https://github.com/bbatsov/projectile
+
