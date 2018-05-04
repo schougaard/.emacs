@@ -19,7 +19,7 @@
  '(ido-vertical-mode t)
  '(package-selected-packages
    (quote
-    (dashboard ido-grid-mode smex ido-vertical-mode ac-html markdown-mode yaml-mode neotree super-save)))
+    (projectile dashboard ido-grid-mode smex ido-vertical-mode ac-html markdown-mode yaml-mode neotree super-save)))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -52,13 +52,17 @@
 (setq inhibit-splash-screen t)
 ;(switch-to-buffer "**")
 
+;; https://github.com/bbatsov/projectile
+(projectile-mode)
+(setq projectile-switch-project-action #'neotree)
+
 ;; Dashboard
 ;;(require 'dashboard)
 (setq dashboard-banner-logo-title "Emacs Ready!")
 (setq dashboard-startup-banner 'logo)
 (setq dashboard-items '((recents  . 10)
+                        (projects . 10)
                         (bookmarks . 5)
-                        ;(projects . 5)
                         ;(agenda . 5)
                         ;(registers . 5)
 			))
@@ -112,5 +116,5 @@
 ;; TODO:
 ;; https://github.com/chrisdone/god-mode
 ;; http://ergoemacs.github.io/
-;; https://github.com/bbatsov/projectile
+
 
