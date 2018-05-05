@@ -19,7 +19,7 @@
  '(ido-vertical-mode t)
  '(package-selected-packages
    (quote
-    (projectile dashboard ido-grid-mode smex ido-vertical-mode ac-html markdown-mode yaml-mode neotree super-save)))
+    (restclient magit projectile dashboard ido-grid-mode smex ido-vertical-mode ac-html markdown-mode yaml-mode neotree super-save)))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -54,6 +54,7 @@
 
 ;; https://github.com/bbatsov/projectile
 (projectile-mode)
+;; load neotree when opening a project
 (setq projectile-switch-project-action #'neotree)
 
 ;; Dashboard
@@ -116,5 +117,7 @@
 ;; TODO:
 ;; https://github.com/chrisdone/god-mode
 ;; http://ergoemacs.github.io/
+;; paredit, parinfer
+;; 
 
 
