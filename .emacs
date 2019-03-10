@@ -26,19 +26,28 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Consolas" :foundry "outline" :slant normal :weight normal :height 98 :width normal)))))
+ '(default ((t (:family "Ubuntu Mono" :foundry "DAMA" :slant normal :weight normal :height 113 :width normal)))))
 
 ;; ------------------------------------
 
 ;; See: https://github.com/emacs-tw/awesome-emacs
+;;C-x C-e in any buffer evaluates the Lisp form immediately before point
 
-;; Useful configuation commands:
+;; Useful configuration commands:
 ; menu-set-font
 ; list-packages
 ; package-list-packages
 ; package-install:
-; markdown-mode yaml-mode neotree super-save
-;;C-x C-e in any buffer evaluates the Lisp form immediately before point
+; markdown-mode yaml-mode neotree super-save projectile ido-grid-mode
+;(setq package-list '(markdown-mode yaml-mode neotree super-save projectile ido-grid-mode))
+; fetch the list of packages available
+;(unless package-archive-contents
+;  (package-refresh-contents))
+; install the missing packages
+;(dolist (package package-list)
+;  (unless (package-installed-p package)
+;    (package-install package)))
+
 
 ;; Place this file in C:\Users\Username\AppData\Roaming and point to the appropriate files
 ;;https://emacs.stackexchange.com/questions/12881/how-do-i-set-a-different-location-for-the-dot-emacs-emacs-file-on-windows-7
@@ -118,6 +127,4 @@
 ;; https://github.com/chrisdone/god-mode
 ;; http://ergoemacs.github.io/
 ;; paredit, parinfer
-;; 
-
-
+;;
