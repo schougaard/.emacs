@@ -125,6 +125,8 @@
 ;; treat _ as part of word
 (global-superword-mode 1)
 
+(global-set-key (kbd "C-/") 'comment-or-uncomment-region)
+
 ;; Message in minibuffer
 (message "Emacs ready!")
 
