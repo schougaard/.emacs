@@ -90,6 +90,8 @@
 (setq w32-pass-multimedia-buttons-to-system nil)
 (global-set-key (kbd "<browser-forward>") 'next-buffer)
 (global-set-key (kbd "<browser-back>") 'previous-buffer)
+(global-set-key (kbd "C-<right>") 'next-buffer)
+(global-set-key (kbd "C-<left>") 'previous-buffer)
 
 ;; Neotree C-c C-c will display current directory as root in tree
 (require 'neotree)
