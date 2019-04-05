@@ -19,7 +19,7 @@
  '(ido-vertical-mode t)
  '(package-selected-packages
    (quote
-    (restclient magit projectile dashboard ido-grid-mode smex ido-vertical-mode ac-html markdown-mode yaml-mode neotree super-save)))
+    (ripgrep restclient magit projectile dashboard ido-grid-mode smex ido-vertical-mode ac-html markdown-mode yaml-mode neotree super-save)))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -39,14 +39,14 @@
 ; package-list-packages
 ; package-install:
 ; markdown-mode yaml-mode neotree super-save projectile ido-grid-mode
-;(setq package-list '(markdown-mode yaml-mode neotree super-save projectile ido-grid-mode))
+(setq package-list '(markdown-mode yaml-mode neotree super-save projectile ido-grid-mode))
 ; fetch the list of packages available
-;(unless package-archive-contents
-;  (package-refresh-contents))
+(unless package-archive-contents
+  (package-refresh-contents))
 ; install the missing packages
-;(dolist (package package-list)
-;  (unless (package-installed-p package)
-;    (package-install package)))
+(dolist (package package-list)
+  (unless (package-installed-p package)
+    (package-install package)))
 
 
 ;; Place this file in C:\Users\Username\AppData\Roaming and point to the appropriate files
@@ -92,13 +92,13 @@
 (global-set-key (kbd "<browser-back>") 'previous-buffer)
 
 ;; Neotree C-c C-c will display current directory as root in tree
-;;(require 'neotree)
+(require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
 ;(global-set-key (kbd "C-m") 'neotree-toggle)
 
 ;; IDO
 ;; https://www.masteringemacs.org/article/introduction-to-ido-mode
-;;(require 'ido)
+(require 'ido)
 (setq ido-enable-flex-matching t)
 (setq ido-use-filename-at-point 'guess)
 (setq ido-create-new-buffer 'always)
@@ -108,16 +108,20 @@
 ;(require 'ido-vertical-mode)
 ;(ido-vertical-mode 1)
 
-;;(require 'ido-grid-mode)
+(require 'ido-grid-mode)
 (ido-grid-mode 1)
 
 
-;;(require 'smex) ; Not needed if you use package.el
+(require 'smex) ; Not needed if you use package.el
 (smex-initialize) ; Can be omitted. This might cause a (minimal) delay
 		  ; when Smex is auto-initialized on its first run.
 
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
+
+;; superword-mode
+;; treat _ as part of word
+(global-superword-mode 1)
 
 ;; Message in minibuffer
 (message "Emacs ready!")
